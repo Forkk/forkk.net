@@ -1,6 +1,11 @@
 ---
 ---
 
+// Accent colors
+$primary: #e65100;
+$prim-light: #ff833a;
+$prim-dark: #ac1900;
+
 $font-stack: 'Roboto', sans-serif;
 $font-size:  12pt;
 
@@ -10,9 +15,9 @@ $header-color: #555; // color of text in h1, h2, h3, etc
 $body-color:   #666; // color of body text
 $shadow-color: rgba(0, 0, 0, 0.28);
 
-$link-color:       #66f; // color of links
-$link-click-color: #33f; // color of links when clicked
-$link-hover-color: #00f; // color of links when clicked
+$link-color:       $primary;    // color of links
+$link-click-color: $prim-dark;  // color of links when clicked
+$link-hover-color: $prim-light; // color of links when clicked
 
 $footer-text-size:  10pt;
 $footer-text-color: #999; // color of text in the footer

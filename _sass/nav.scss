@@ -1,0 +1,85 @@
+nav h1 {
+  font-size: 12pt;
+  text-transform: uppercase;
+  margin: 0 0;
+}
+
+nav .logo {
+  font-size: 24pt;
+  font-weight: bold;
+}
+
+nav a {
+  font-size: 11pt;
+  font-weight: normal;
+  text-decoration: none;
+  color: #444;
+  display: block;
+  transition: color .2s, background-color .2s;
+}
+
+nav a:hover  { color: #444; }
+nav a:active { color: #444; }
+
+
+@media #{$fullsize} {
+  $nav-width: 180px;
+
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $nav-width;
+
+    background-color: #555;
+    box-shadow: 1px 0px 4px $shadow-color;
+
+    text-align: right;
+    padding: 28px 0;
+  }
+  body {
+    margin-left: $nav-width !important;
+  }
+
+  nav h1 {
+    padding: 8px 16px;
+    padding-top: 16px;
+    color: #ddd;
+  }
+
+  nav a {
+    padding: 4px 24px;
+    color: #aaa;
+  }
+  nav a:hover {
+    background-color: #eee;
+  }
+  nav a:active {
+    background-color: #ddd;
+  }
+}
+
+@media #{$mobile} {
+  nav {
+    margin-top: 16px;
+    border: none;
+    height: 100%;
+    text-align: center;
+  }
+
+  nav div {
+    display: inline-block;
+    margin: 12px 32px;
+    vertical-align: top;
+  }
+
+  nav a {
+    padding: 6px 0;
+    font-size: 13pt;
+  }
+
+  nav a:hover  { color: #888; }
+  nav a:active { color: #222; }
+}
+

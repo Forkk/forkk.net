@@ -1,0 +1,27 @@
+title: forkk.net
+#email: forkk@forkk.net
+description: >-
+  My personal website
+baseurl: ""
+url: ""
+twitter_username: Forkk13
+github_username:  Forkk
+
+# Build settings
+markdown: kramdown
+plugins:
+
+sass:
+    sass_dir: _sass
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

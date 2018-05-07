@@ -1,0 +1,71 @@
+---
+---
+
+$font-stack: 'Roboto', sans-serif;
+$font-size:  12pt;
+
+$bgcolor: #fff;
+
+$header-color: #555; // color of text in h1, h2, h3, etc
+$body-color:   #666; // color of body text
+$shadow-color: rgba(0, 0, 0, 0.28);
+
+$link-color:       #66f; // color of links
+$link-click-color: #33f; // color of links when clicked
+$link-hover-color: #00f; // color of links when clicked
+
+$footer-text-size:  10pt;
+$footer-text-color: #999; // color of text in the footer
+$footer-link-color: #99f; // color of links in the footer
+$footer-rule-color: #bbb;
+
+$mobile: "screen and (max-width: 800px)";
+$fullsize: "screen and (min-width: 800px)";
+
+@import 'nav';
+
+body {
+  margin: 0 0;
+  font-family: $font-stack;
+  font-size: $font-size;
+  color: $body-color;
+  background-color: $bgcolor;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $font-stack;
+  color: $header-color;
+}
+
+a {
+  color: $link-color;
+  transition: color 0.2s;
+}
+a:hover { color: $link-hover-color; }
+a:active { color: $link-click-color; }
+
+main, header, .container {
+  padding: 0 0;
+  max-width: 800px;
+}
+
+main {
+  margin-bottom: 8px;
+  padding: 10px 30px;
+}
+
+footer {
+  border-style: solid;
+  border-color: $footer-rule-color;
+  border-width: 0px;
+  border-top-width: 1px;
+}
+footer p {
+  font-size: $footer-text-size;
+  color: $footer-text-color;
+  margin: 4px 30px;
+}
+footer a {
+  color: $footer-link-color;
+}
+

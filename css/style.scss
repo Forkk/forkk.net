@@ -21,7 +21,8 @@ $link-hover-color: $prim-light; // color of links when clicked
 
 $footer-text-size:  10pt;
 $footer-text-color: #999; // color of text in the footer
-$footer-link-color: #99f; // color of links in the footer
+$footer-link-color: $prim-light; // color of links in the footer
+$footer-link-hover-color: $primary; // color of links in the footer when hovered
 $footer-rule-color: #bbb;
 
 $mobile: "screen and (max-width: 800px)";
@@ -72,5 +73,8 @@ footer p {
 }
 footer a {
   color: $footer-link-color;
+}
+footer a:hover {
+  color: $footer-link-hover-color;
 }
 

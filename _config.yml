@@ -1,11 +1,12 @@
 title: forkk.net
-#email: forkk@forkk.net
+email: contact@forkk.net
 description: >-
   My personal website
 baseurl: ""
 url: ""
 twitter_username: Forkk13
 github_username:  Forkk
+github_repo_url: https://github.com/Forkk/forkk.net
 
 # Build settings
 markdown: kramdown

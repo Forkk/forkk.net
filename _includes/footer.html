@@ -1,4 +1,12 @@
 <footer>
-    <p>Copyright &copy; 2013-2018 Andrew Okin</p>
+    <p>Copyright &copy; 2013-2018 Andrew Okin
+    &lt;<a href="mailto:{{ site.email }}">{{ site.email }}</a>&gt;</p>
+    <p>
+    Git revision
+        <a href="{{ site.github_repo_url }}/commit/{{ site.git.last_commit.long_sha }}">
+            {{ site.git.last_commit.short_sha }}</a> &ndash;
+        <a href="{{ site.github_repo_url }}">check it out on GitHub</a>
+    </p>
+    <p>Powered by <a href="https://jekyllrb.com/">Jekyll</a></p>
 </footer>
 

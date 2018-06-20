@@ -1,0 +1,25 @@
+---
+layout: default
+title: Tic-Tac-Toe
+---
+
+<p>This is a tic-tac-toe game written in JavaScript and HTML 5 with an AI that's pretty much unbeatable. You can also turn off the AI and play with a friend if you like.</p>
+
+<p>I wrote this in 2012 and the AI is pretty much a brute force solution.
+I could rewrite it and make it a lot nicer (the code certainly needs it), but I'd rather
+keep it in its current state for nostalgia's sake.</p>
+
+<p>If you manage to beat the AI, let me know
+<a href="https://twitter.com/{{ site.twitter_username }}">on Twitter</a>.
+Be sure to tell me how you beat it, so I can make it better ;)</a>
+
+<h3 id="TTT_TurnDisplay"></h3>
+<input id="TTT_AutoAICheck" type="checkbox" checked></input>
+<label for="TTT_AutoAICheck">Enable AI</label>
+<canvas id="TTT_Canvas" style="position: relative;"
+  data-bgcolor="#FFFFFF" data-fgcolor="#000000" width="400" height="400">
+</canvas>
+
+<script src="assets/js/tictactoe.js"></script>
+<script>addEventListener("load", OnInit);</script>
+

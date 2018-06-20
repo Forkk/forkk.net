@@ -7,9 +7,9 @@ layout: default
 I'm Andrew (or Forkk). I'm a software developer.
 
 I mostly work on open source software in various languages. Some of my favorites
-are Rust, Kotlin, Haskell, and Python.
+are Rust, Kotlin, Haskell, and Python. I also know C/C++, Java, etc.
 
-I also enjoy playing with different new technologies like [Docker](https://www.docker.com/),
+I enjoy working with new technologies like [Docker](https://www.docker.com/),
 [IPFS](https://ipfs.io), and [Nix](https://nixos.org/nix/)/[NixOS](https://nixos.org/).
 
 # Projects

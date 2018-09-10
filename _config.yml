@@ -6,7 +6,8 @@ baseurl: ""
 url: ""
 twitter_username: Forkk13
 github_username:  Forkk
-github_repo_url: https://github.com/Forkk/forkk.net
+gitlab_url: https://git.forkk.net/Forkk
+git_repo_url: https://git.forkk.net/Forkk/forkk.net
 
 # Build settings
 markdown: kramdown

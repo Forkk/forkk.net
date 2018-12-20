@@ -9,7 +9,11 @@ cache:
     - vendor
 
 before_script:
-  - bundle install
+  # Ensure ssh-agent is installed
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  # Ensure rsync is installed
+  - 'which rsync || ( apt-get update -y && apt-get install rsync -y )'
+  - bundle install --path=vendor
 
 build:
   stage: build
@@ -18,4 +22,32 @@ build:
   artifacts:
     paths:
     - _site
+
+deploy:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    # Run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+    # We're using tr to fix line endings which makes ed25519 keys work
+    # without extra base64 encoding.
+    # https://gitlab.com/gitlab-examples/ssh-private-key/issues/1#note_48526556
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+
+    # Create the SSH directory and give it the right permissions
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+
+    # Add the public host key for the target server
+    - echo "$SSH_HOST_KEY" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+
+    # Add the SSH config
+    - echo "$SSH_CONFIG" > ~/.ssh/config
+    - chmod 644 ~/.ssh/config
+
+    # Deploy the artifacts from the build stage
+    - rsync -a --delete _site "$SSH_DEPLOY_DEST"
 

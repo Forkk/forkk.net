@@ -30,6 +30,9 @@ deploy:
   only:
     refs:
       - master
+  environment:
+    name: production
+    url: https://forkk.net
   script:
     # Run ssh-agent (inside the build environment)
     - eval $(ssh-agent -s)

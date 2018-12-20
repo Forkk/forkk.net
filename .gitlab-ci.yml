@@ -49,5 +49,5 @@ deploy:
     - chmod 644 ~/.ssh/config
 
     # Deploy the artifacts from the build stage
-    - rsync -a --delete _site "$SSH_DEPLOY_DEST"
+    - rsync -a --delete _site/ "$SSH_DEPLOY_DEST"
 

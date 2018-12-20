@@ -27,6 +27,9 @@ deploy:
   stage: deploy
   dependencies:
     - build
+  only:
+    refs:
+      - master
   script:
     # Run ssh-agent (inside the build environment)
     - eval $(ssh-agent -s)

@@ -27,6 +27,11 @@ deploy_master:
     name: production
     url: https://forkk.net
   script:
+    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
+    # We're using tr to fix line endings which makes ed25519 keys work
+    # without extra base64 encoding.
+    # https://gitlab.com/gitlab-examples/ssh-private-key/issues/1#note_48526556
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     # Deploy the artifacts from the build stage
     - rsync -a --delete _site/ "$SSH_DEPLOY_DEST"
 
@@ -39,8 +44,17 @@ deploy_test:
     name: test
     url: https://test.forkk.net
   script:
-    # Deploy the artifacts from the build stage
+    - echo "$SSH_TEST_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - rsync -a --delete _site/ "$SSH_TEST_DEPLOY_DEST"
+
+deploy_branch:
+  extends: .deploy
+  environment:
+    name: branch/$CI_COMMIT_REF_NAME
+    url: https://test.forkk.net/branch/$CI_COMMIT_REF_SLUG
+  script:
+    - echo "$SSH_TEST_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - rsync -a --delete _site/ "$SSH_BRANCH_DEPLOY_DEST/$CI_COMMIT_REF_SLUG"
 
 .deploy:
   stage: deploy
@@ -55,11 +69,6 @@ deploy_test:
 
     # Run ssh-agent (inside the build environment)
     - eval $(ssh-agent -s)
-    # Add the SSH key stored in SSH_PRIVATE_KEY variable to the agent store
-    # We're using tr to fix line endings which makes ed25519 keys work
-    # without extra base64 encoding.
-    # https://gitlab.com/gitlab-examples/ssh-private-key/issues/1#note_48526556
-    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
 
     # Create the SSH directory and give it the right permissions
     - mkdir -p ~/.ssh

@@ -49,6 +49,11 @@ deploy_test:
 
 deploy_branch:
   extends: .deploy
+  only:
+    - branches
+  except:
+    - master
+    - test
   environment:
     name: branch/$CI_COMMIT_REF_NAME
     url: https://test.forkk.net/branch/$CI_COMMIT_REF_SLUG

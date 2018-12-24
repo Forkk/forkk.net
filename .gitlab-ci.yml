@@ -57,9 +57,23 @@ deploy_branch:
   environment:
     name: branch/$CI_COMMIT_REF_NAME
     url: https://test.forkk.net/branch/$CI_COMMIT_REF_SLUG
+    on_stop: stop_branch
   script:
     - echo "$SSH_TEST_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - rsync -a --delete _site/ "$SSH_BRANCH_DEPLOY_DEST/$CI_COMMIT_REF_SLUG"
+
+stop_branch:
+  extends: deploy_branch
+  dependencies: []
+  when: manual
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: branch/$CI_COMMIT_REF_NAME
+    action: stop
+  script:
+    - echo "$SSH_TEST_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - ssh "$SSH_BRANCH_DEPLOY_HOST" "rm -r $SSH_BRANCH_DEPLOY_PATH/$CI_COMMIT_REF_SLUG"
 
 .deploy:
   stage: deploy

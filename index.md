@@ -9,11 +9,9 @@ I'm Andrew (or Forkk). I'm a software developer.
 I mostly work on open source software in various languages. Some of my favorites
 are Rust, Kotlin, Haskell, and Python. I also know C/C++, Java, etc.
 
-I enjoy working with new technologies like [Docker](https://www.docker.com/),
-[IPFS](https://ipfs.io), and [Nix](https://nixos.org/nix/)/[NixOS](https://nixos.org/).
-
 # Projects
 
+<img class='projectlogo' alt='MultiMC Logo' src='/assets/img/mmc-logo.svg'>
 ## MultiMC
 
 MultiMC is a free, open source launcher for Minecraft. It allows you to have multiple, cleanly separated installations of Minecraft (each with their own mods, texture packs, saves, etc) and helps you manage them and their associated options with a simple and powerful interface.
@@ -24,14 +22,11 @@ build systems for about 4 years. It's now in the very capable hands of
 
 Check it out at [multimc.org](https://multimc.org).
 
+<img class='projectlogo' alt='MCArchive Logo' src='/assets/img/mcarch-logo.svg'>
 ## MCArchive
 
-MCArchive is a project aimed at archiving all Minecraft mods forever.
-The project consists of a [GitHub repository](https://github.com/MCArchive/metarepo)
-containing YAML files with metadata about each mod, and a [website](https://mcarchive.net)
-listing those mods. Mod files are stored in [IPFS](https://www.ipfs.io), allowing anyone to
-mirror the entire archive trivially.
-
+MCArchive is a website which aims to archive all Minecraft mods forever and
+make them easily available to the public.
 Check it out at [mcarchive.net](https://mcarchive.net).
 
 ## ...and more
